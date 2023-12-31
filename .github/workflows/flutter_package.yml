@@ -87,7 +87,9 @@ jobs:
         run: |
           flutter pub global activate very_good_cli
           very_good packages get --recursive --ignore=${{inputs.package_get_excludes}}
-
+      - name: 🛠️ Build App
+        run: flutter build apk 
+        
       - name: ⚙️ Run Setup
         if: "${{inputs.setup != ''}}"
         run: ${{inputs.setup}}
